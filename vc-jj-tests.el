@@ -611,6 +611,12 @@ REV2 arguments) and (2) when only REV1 has been specified to it."
   ;; │  Added regular file first file:
   ;; │          1: foo
   ;; ┴  zzzzzzzz root() 00000000
+
+  ;; Kludge: the output of 'jj diff --git' changed slightly after this
+  ;; test was originally written; make sure we run at least the
+  ;; known-good version.  If this test fails, fix the string constants
+  ;; below and bump the version.
+  (skip-unless (version<= "0.47.1" (vc-jj--program-version)))
   (vc-jj-test--with-repo repo
     (let ((vc-jj-diff-switches '("--git"))
           parent-rev-1 parent-rev-2
@@ -659,7 +665,7 @@ REV2 arguments) and (2) when only REV1 has been specified to it."
                                         "index 257cc5642c..0c071e1d07 100644"
                                         "--- a/first file"
                                         "+++ b/first file"
-                                        "@@ -1,1 +1,2 @@"
+                                        "@@ -1,1 +1,2 @@ foo"
                                         " foo"
                                         "+baz"
                                         "diff --git a/second file b/second file"
@@ -667,7 +673,7 @@ REV2 arguments) and (2) when only REV1 has been specified to it."
                                         "index 0000000000..5716ca5987"
                                         "--- /dev/null"
                                         "+++ b/second file"
-                                        "@@ -0,0 +1,1 @@"
+                                        "@@ -0,0 +1,1 @@ bar"
                                         "+bar\n")
                                       "\n"))))
 
@@ -690,7 +696,7 @@ REV2 arguments) and (2) when only REV1 has been specified to it."
                                         "index 0000000000..5716ca5987"
                                         "--- /dev/null"
                                         "+++ b/second file"
-                                        "@@ -0,0 +1,1 @@"
+                                        "@@ -0,0 +1,1 @@ bar"
                                         "+bar\n")
                                       "\n")))))))
 
