@@ -6,7 +6,7 @@
 ;;         Rudolf Schlatte <rudi@constantly.at>
 ;;         Kristoffer Balintona <krisbalintona@gmail.com>
 ;; URL: https://codeberg.org/emacs-jj-vc/vc-jj.el
-;; Version: 0.5
+;; Version: 0.6
 ;; Package-Requires: ((emacs "28.1") (compat "30.1") (project "0.11.2"))
 ;; Keywords: vc tools
 

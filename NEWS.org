@@ -2,7 +2,7 @@
 
 * Recent changes
 
-** Unreleased
+** [[https://codeberg.org/emacs-jj-vc/vc-jj.el/compare/v0.5...v0.6][0.6]]- 2026-11-22
 
 *** Added
 
@@ -13,14 +13,13 @@
 
 *** Changed
 
-*** Removed
+- Removed the file =project-jj.el= and its implementation of an ~:around~ method for ~project-files~.  Instead, add the vc backend function ~vc-jj-project-list-files~, which is called by project.el >= 0.11.2.  Older versions of project.el fall back to project.el's default implementation, which is less performant but functionally correct.
+- Commands that rely on ~vc-jj-revision-completion-table~, such as ~vc-revision-other-window~, are now drastically faster and do not error when there are divergent changes in the repository history.
 
 *** Fixed
 
-- Removed the file =project-jj.el= and its implementation of an ~:around~ method for ~project-files~.  Instead, add the vc backend function ~vc-jj-project-list-files~, which is called by project.el >= 0.11.2.  Older versions of project.el fall back to project.el's default implementation, which is less performant but functionally correct.
-- Fixed a bug where the contents of ​*vc-diff​* were not erased prior to invocations of ~vc-jj-diff~.
+- Fixed a bug where the contents of the =*vc-diff*= buffer was not erased prior to invocations of ~vc-jj-diff~.
 - The vc-dir buffer no longer lists entries for up-to-date and ignored files, as per the VC specification.
-- Commands that rely on ~vc-jj-revision-completion-table~, such as ~vc-revision-other-window~, are now drastically faster and do not error when there are divergent changes in the repository history.
 
 ** [[https://codeberg.org/emacs-jj-vc/vc-jj.el/compare/v0.4...v0.5][0.5]] - 2025-12-21
 
