@@ -2,6 +2,16 @@
 
 * Recent changes
 
+** Unreleased
+
+*** Added
+
+*** Changed
+
+*** Removed
+
+*** Fixed
+
 ** [[https://codeberg.org/emacs-jj-vc/vc-jj.el/compare/v0.5...v0.6][0.6]]- 2026-11-22
 
 *** Added
